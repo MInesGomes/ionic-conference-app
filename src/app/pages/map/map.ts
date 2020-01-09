@@ -31,6 +31,24 @@ export class MapPage implements AfterViewInit {
     );
 
     let map;
+  /*  "map": [
+    {
+      "name": "Monona Terrace Convention Center",
+      "lat": 43.071584,
+      "lng": -89.38012,
+      "center": true
+    },
+    {
+      "name": "Ionic HQ",
+      "lat": 43.074395,
+      "lng": -89.381056
+    },
+    {
+      "name": "Afterparty - Brocach Irish Pub",
+      "lat": 43.07336,
+      "lng": -89.38335
+    }
+  ], */
 
     this.confData.getMap().subscribe((mapData: any) => {
       const mapEle = this.mapElement.nativeElement;
@@ -43,7 +61,7 @@ export class MapPage implements AfterViewInit {
 
       mapData.forEach((markerData: any) => {
         const infoWindow = new googleMaps.InfoWindow({
-          content: `<h5>${markerData.name}</h5>`
+          content: ` <ion-item lines='none' ><h6> ${markerData.name}</h6></ion-item>`
         });
 
         const marker = new googleMaps.Marker({
